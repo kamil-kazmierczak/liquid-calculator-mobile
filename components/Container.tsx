@@ -10,9 +10,10 @@ import {
     HStack,
     InputSlot,
     ButtonText,
+    FormControlLabelText, FormControlLabel, FormControl,
 } from "@gluestack-ui/themed";
 import Gradient from "../assets/Icons/Gradient";
-import { useState } from "react";
+import {useState} from "react";
 
 const Container = () => {
     const glicerineDensity = 1.26
@@ -44,38 +45,58 @@ const Container = () => {
 
     return (
         <Box margin="$16" justifyContent="flex-start" alignItems="flex-start">
-            <Input>
-                <InputField
-                    onChangeText={(value) => setAmountOfLiquid(Number(value))}
-                    placeholder="Total amount of liquid [ml]"
-                />
-            </Input>
-            <Input>
-                <InputField
-                    onChangeText={(value) => setPowerOfNicotine(Number(value))}
-                    placeholder="Power of nicotine [mg/ml]"
-                />
-            </Input>
-            <Input>
-                <InputField
-                    onChangeText={(value) => setAmountOfAroma(Number(value))}
-                    placeholder="Amount of aroma [ml]"
-                />
-            </Input>
-            <Input>
-                <InputField
-                    onChangeText={(value) => setWantedPower(Number(value))}
-                    placeholder="Wanted power [mg/ml]"
-                />
-            </Input>
+            <FormControl
+                size="md"
+                isDisabled={false}
+                isInvalid={false}
+                isReadOnly={false}
+                isRequired={false}
+            >
+                <FormControlLabel mb="$1">
+                    <FormControlLabelText>Total amount of liquid [ml]</FormControlLabelText>
+                </FormControlLabel>
+                <Input>
+                    <InputField
+                        onChangeText={(value) => setAmountOfLiquid(Number(value))}
+                        placeholder="Total amount of liquid [ml]"
+                    />
+                </Input>
+                <FormControlLabel mb="$1">
+                    <FormControlLabelText>Power of nicotine [mg/ml]</FormControlLabelText>
+                </FormControlLabel>
+                <Input>
+                    <InputField
+                        onChangeText={(value) => setPowerOfNicotine(Number(value))}
+                        placeholder="Power of nicotine [mg/ml]"
+                    />
+                </Input>
+                <FormControlLabel mb="$1">
+                    <FormControlLabelText>Amount of aroma [ml]</FormControlLabelText>
+                </FormControlLabel>
+                <Input>
+                    <InputField
+                        onChangeText={(value) => setAmountOfAroma(Number(value))}
+                        placeholder="Amount of aroma [ml]"
+                    />
+                </Input>
+                <FormControlLabel mb="$1">
+                    <FormControlLabelText>Wanted power [mg/ml]</FormControlLabelText>
+                </FormControlLabel>
+                <Input>
+                    <InputField
+                        onChangeText={(value) => setWantedPower(Number(value))}
+                        placeholder="Wanted power [mg/ml]"
+                    />
+                </Input>
+            </FormControl>
 
-            <Divider padding={1} marginVertical={20} />
+            <Divider padding={1} marginVertical={20}/>
 
             <Text>Glicerine: {calculatedGlycerin.toFixed(2)} ml</Text>
             <Text>Glycol: {calculatedGlycol.toFixed(2)} ml</Text>
             <Text>Nicotine: {calculatedNicotine.toFixed(2)} ml</Text>
 
-            <Divider padding={1} marginVertical={20} />
+            <Divider padding={1} marginVertical={20}/>
 
             <Text>Glicerine to put: {glycerin.toFixed(2)} ml ({(glycerin * glicerineDensity).toFixed(2)} g)</Text>
             <Text>Glycol to put: {glycol.toFixed(2)} ml ({(glycol * glycolDensity).toFixed(2)} g)</Text>
