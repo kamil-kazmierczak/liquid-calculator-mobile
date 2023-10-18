@@ -45,7 +45,7 @@ const Container = () => {
 
     return (
         <Box paddingHorizontal="$10" flex={1} pt="$20" >
-            <Box flex={2}>
+            <Box flex={3}>
                 <FormControl
                     size="md"
                     isDisabled={false}
